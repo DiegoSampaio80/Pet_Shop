@@ -1,0 +1,162 @@
+
+
+<style>
+    .navbar-brand {
+        /* color: rgb(195,50,0) !important ;*/
+        font-family: 'Pet Shop', sans-serif;
+        font-size: 40px;
+    }
+    .nav-link{
+        color: rgba(105, 50, 0, 0.7) !important ;
+        /* font-family: 'Cookie', cursive; 
+        font-size: 30px; */
+        font-family: 'Amatic SC', cursive;
+        font-size: 25px;
+        font-weight: 700 !important;
+    }
+    .nav-link:hover{
+        color: rgba(95, 50, 0, 1.0) !important ;
+        /* font-family: 'Cookie', cursive; 
+        font-size: 30px; */
+        /* font-family: 'Chicle', cursive; */
+        font-family: 'Amatic SC', cursive;
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .dropdown-item{
+        font-family: 'Amatic SC', cursive;
+        font-size: 25px;
+        font-weight: 700;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <div class="container">
+        <a class="navbar-brand pe-5" style="width: fit-content;" href="/">
+            <img src="/img/planeta-pet.jpeg" style="width: 70px" class="rounded-2" alt="">
+        </a>
+        <!-- <a class="navbar-brand p-0" href="/">Planeta Pet</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto w-100 px-3 mb-2 mb-lg-0 justify-content-between">
+               <!--  <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="/" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Home
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="/#banner">Home</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/#produtos">Produtos</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/#footer">Contatos e Localização</a>
+                        </li>
+                    </ul>
+                </li>        
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/veterinario-serv" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Serviços
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="/veterinario-serv/1">Veterinário</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="/veterinario-serv/2">Banho</a></li>
+                        <li><a class="dropdown-item" href="/veterinario-serv/2">Tosa</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="/veterinario-serv/4">Creche</a></li>
+                        <li><a class="dropdown-item" href="/veterinario-serv/5">Hotel</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="/veterinario-serv/3">Pet Táxi</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="/veterinario-serv/7">Medicamentos</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Cadastros
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/listar-tutor">Pesquisar Tutor</a></li>
+                        <li><a class="dropdown-item" href="/listar-pet">Pesquisar Pet</a></li>
+                        <li><a class="dropdown-item" href="/listar-categoria">Pesquisar Categoria</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Pet
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Cadastrar Pet</a></li>
+                        <li><a class="dropdown-item" href="#">Pesquisar Pet</a></li>
+                    </ul>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Adoção
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Quero Adotar</a></li>
+                        <li><a class="dropdown-item" href="#">Quero Doar</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Feiras Externas</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        SAC
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Sugestão</a></li>
+                        <li><a class="dropdown-item" href="#">Atenção</a></li>
+                        <li><a class="dropdown-item" href="#">Elogio</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Administrativo
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/cadastrar-serv">Cadastrar Serviços</a></li>
+                        <li><a class="dropdown-item" href="/cadastrar-tutor">Cadastrar Tutor</a></li>
+                        <li><a class="dropdown-item" href="/cadastrar-pet">Cadastrar Pet</a></li>
+                        <li><a class="dropdown-item" href="/cadastrar-categoria">Cadastrar Categoria</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
