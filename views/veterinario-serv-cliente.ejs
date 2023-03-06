@@ -34,7 +34,7 @@
     <title>Lista de Serviços</title>
 <body>
     <header class=" sticky-top shadow">
-        <%- include('navbar-adm') %>
+        <%- include('navbar') %>
     </header>
     
     <section class="container my-5 border rounded-2 p-4 pb-2 overflow-auto" style="height: 470px;">
@@ -52,9 +52,6 @@
                     <th class="text-center align-middle text-uppercase p-3 text-nowrap" scope="col">Serviço</th>
                     <th class="text-center align-middle text-uppercase p-3 text-nowrap" scope="col">Unid. de Medida</th>
                     <th class="text-center align-middle text-uppercase p-3 text-nowrap" scope="col">Valor</th>
-                    <th class="text-center align-middle text-uppercase p-3 text-nowrap" scope="col">Categoria</th>
-                    <th class="text-center align-middle text-uppercase p-3 text-nowrap" scope="col">Editar</th>
-                    <th class="text-center align-middle text-uppercase p-3 text-nowrap" scope="col">Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,20 +68,6 @@
                         </td>
                         <td class="text-end align-middle col-auto">
                             <%= resultados[i].valor %>
-                        </td>
-                        <td class="text-center align-middle col-auto">
-                            <%= resultados[i].serv_categoria %>
-                        </td>
-                        <td class="text-center col-auto">
-                            <a href="/atualizar-serv/<%= resultados[i].id_serv_veterinario %>">
-                               <button class="btn btn-info text-white" style="width: 100px;">EDITAR</button>
-                            </a>
-                        </td>
-                        <td class="text-center col-auto">
-                            <form action="/veterinario-serv/<%= resultados[i].id_serv_veterinario %>" method="POST">
-                              <input type="hidden" name="_method" value="DELETE">
-                              <button class="btn btn-warning text-white" style="width: 100px;">EXCLUIR</button>
-                            </form>
                         </td>
                     </tr>
                     <% } %>

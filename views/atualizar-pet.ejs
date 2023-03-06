@@ -29,7 +29,7 @@
 
 <body>
     <header class=" sticky-top shadow">
-        <%- include('navbar') %>
+        <%- include('navbar-adm') %>
     </header>
         <div class="container my-4 border rounded-2 p-4">
             <% if (error_msg != '') { %>
@@ -54,12 +54,12 @@
                         <input type="text" value="<%= new Date().getFullYear() - new Date(editarPet.dt_nasc_pet).getFullYear() %>" name="idade" class="form-control text-center" id="idade">
                     </div>
                     <div class="col-3 mb-3 p-2">
-                        <label for="cod_tutor" class="form-label">Nome do Tutor</label>
-                        <input type="text" value="<%= editarPet.nome_tutor %>" name="cod_tutor" class="form-control" id="cod_tutor">
+                        <label for="nome_tutor" class="form-label">Nome do Tutor</label>
+                        <input type="text" value="<%= editarPet.nome_tutor %>" name="nome_tutor" class="form-control" id="nome_tutor" disabled>
                     </div>
                 </div>
                 <div class="col-12 d-flex">
-                    <div class="col-4 mb-3 p-2">
+                    <div class="col-3 mb-3 p-2">
                         <label for="especie" class="form-label">Espécie</label>
                         <select class="form-select" name="especie" id="especie" aria-label="Default select example">
                             <option >Selecione</option>
@@ -72,13 +72,17 @@
                             <option value="Roedor">Roedor</option>
                         </select>
                     </div>
-                    <div class="col-4 mb-3 p-2">
+                    <div class="col-3 mb-3 p-2">
                         <label for="raca" class="form-label">Raça</label>
                         <input type="text" value="<%= editarPet.raca %>" name="raca" class="form-control" id="raca">
                     </div>
                     <div class="col-4 mb-3 p-2">
                         <label for="pelagem" class="form-label">Pelagem</label>
                         <input type="text" value="<%= editarPet.pelagem %>" name="pelagem" class="form-control" id="pelagem">
+                    </div>
+                    <div class="col-2 mb-3 p-2">
+                        <label for="cod_tutor" class="form-label">Código do Tutor</label>
+                        <input type="text" value="<%= editarPet.cod_tutor %>" name="cod_tutor" class="form-control" id="cod_tutor">
                     </div>
                 </div>
                 <div class="col-12 mb-3 p-2">

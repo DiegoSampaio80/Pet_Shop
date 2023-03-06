@@ -29,7 +29,7 @@
 
 <body>
     <header class=" sticky-top shadow">
-        <%- include('navbar') %>
+        <%- include('navbar-adm') %>
     </header>
         <div class="container my-4 border rounded-2 p-4">
             <% if (error_msg != '') { %>
@@ -43,7 +43,7 @@
                 <div class="col-12 d-flex">
                     <div class="col-8 mb-3 p-2">
                         <label for="nome_categoria_serv" class="form-label">Nome da Categoria</label>
-                        <input type="text" class="form-control" value="<%= editarCategoria.nome_categoria_serv %>" name="nome_categoria_serv" id="nome_categoria_serv" required aria-describedby="">
+                        <input type="text" class="form-control" value="<%= editarCategoria.nome_categoria_serv %>" name="nome_categoria_serv" id="nome_categoria_serv" pattern="^[\p{L}. ,\-0-9]+$" required aria-describedby="">
                     </div>
                     <div class="col-4 mb-3 p-2">
                         <label for="status" class="form-label">Situação da Categoria</label>

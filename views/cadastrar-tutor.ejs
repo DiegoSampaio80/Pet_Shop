@@ -34,7 +34,7 @@
 
 <body>
     <header class=" sticky-top shadow">
-        <%- include('navbar') %>
+        <%- include('navbar-adm') %>
     </header>
        
     
@@ -50,7 +50,7 @@
                 <div class="col-12 d-flex">
                     <div class="col-8 mb-3 p-2">
                         <label for="nome_tutor" class="form-label">Nome Tutor</label>
-                        <input type="text" class="form-control" name="nome_tutor" id="nome_tutor" pattern="^([a-zA-Záàâãéèêíïóôõöúçñ]{3,}\s?)+$" title="Insira apenas letras." required aria-describedby="">
+                        <input type="text" class="form-control" name="nome_tutor" id="nome_tutor" pattern="^[\p{L} \]+$" title="Insira apenas letras." required aria-describedby="">
                     </div>
                     <div class="col-2 mb-3 p-2">
                         <label for="contato_tutor" class="form-label">Contato 1</label>
@@ -66,7 +66,7 @@
                 <div class="col-12 d-flex">
                     <div class="col-4 mb-3 p-2">
                         <label for="email_tutor" class="form-label">E-mail</label>
-                        <input type="email" name="email_tutor" class="form-control" id="email_tutor" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+                        <input type="email" name="email_tutor" class="form-control" id="email_tutor" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{6,}$" title="Tem que ter no mínimo 6 caracteres" required>
                     </div>
                     <div class="col-4 mb-3 p-2">
                         <label for="documento_tutor" class="form-label">Documento</label>
@@ -77,25 +77,28 @@
                         <select class="form-select" name="tipo_doc_tutor" id="tipo_doc_tutor"
                             aria-label="Default select example">
                             <option selected>Selecione</option>
-                            <option value="CPF">CPF</option>
+                            <% tipoDocumentos.forEach(function(item) { %>
+                                <option value="<%= item.nome_documento %>"><%= item.nome_documento %></option>
+                            <% }); %>
+                            <!-- <option value="CPF">CPF</option>
                             <option value="RG">RG</option>
-                            <option value="CNPJ">CNPJ</option>
+                            <option value="CNPJ">CNPJ</option> -->
                         </select>
                     </div>
                     <div class="col-2 mb-3 p-2">
                         <label for="status" class="form-label">Situação</label>
                         <select class="form-select" name="status" id="status" aria-label="Default select example">
                             <option selected>Selecione</option>
-                            <option value="Ativo">Ativo</option>
-                            <option value="Ativo">Inativo</option>
-                            <option value="Ativo">Inadimplente</option>
+                            <% situacao.forEach(function(item) { %>
+                                <option value="<%= item.nome_status %>"><%= item.nome_status %></option>
+                            <% }); %>
                         </select>
                     </div>
                 </div>
                 <div class="col-12 d-flex">
                     <div class="col-8 mb-3 p-2">
                         <label for="endereco_tutor" class="form-label">Endereco</label>
-                        <input type="text" name="endereco_tutor" class="form-control" id="endereco_tutor" pattern="^[\w\d\s.,-/#]+$">
+                        <input type="text" name="endereco_tutor" class="form-control" id="endereco_tutor" pattern="^[\p{L}. ,\-0-9]+$">
                     </div>
                     <div class="col-1 mb-3 p-2">
                         <label for="numero" class="form-label">nº</label>

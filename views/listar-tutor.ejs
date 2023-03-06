@@ -35,7 +35,7 @@
 
 <body>
     <header class=" sticky-top shadow">
-        <%- include('navbar') %>
+        <%- include('navbar-adm') %>
     </header>
     <section class="container my-5 border rounded-2 p-4 pb-2 overflow-auto" style="height: 470px;">
         <% if (error_msg != '') { %>
@@ -121,7 +121,7 @@
                             </a>
                         </td>
                         <td class="text-center col-auto align-middle">
-                            <form action="/servico/<%= resultados[i].id_tutor %>" method="POST">
+                            <form action="/listar-tutor/<%= resultados[i].id_tutor %>" method="POST">
                               <input type="hidden" name="_method" value="DELETE">
                               <button class="btn btn-warning text-white text-uppercase" style="width: 100px;">EXCLUIR</button>
                             </form>
@@ -142,6 +142,7 @@
     <script>
         $(document).ready( function () {
             $('#tabela-veterinario').DataTable({
+                "order": [[1, 'asc']],
                 "language": {
                     "lengthMenu":     "Listando até _MENU_ resultados",
                     "info":           "Mostrando _START_ a _END_ de _TOTAL_ entradas",

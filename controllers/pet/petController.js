@@ -27,7 +27,7 @@ function cadastrarPet(req, res) {
 }
 
 function listarCadastroPet(req, res) {
-  const sql = 'SELECT * FROM `pet-shop`.cadastro_pet INNER JOIN `pet-shop`.cadastro_tutor ON `pet-shop`.cadastro_pet.cod_tutor = `pet-shop`.cadastro_tutor.id_tutor ORDER BY nome_pet ASC';
+  const sql = 'SELECT * FROM `pet-shop`.cadastro_pet LEFT JOIN `pet-shop`.cadastro_tutor ON `pet-shop`.cadastro_pet.cod_tutor = `pet-shop`.cadastro_tutor.id_tutor ORDER BY nome_pet ASC';
   connection.query(sql, (error, results) => {
     if (error) {
       console.error(error);
@@ -41,7 +41,7 @@ function listarCadastroPet(req, res) {
 
 function editarCadastroPet(req, res) {
   const id = req.params.id;
-  const sql = 'SELECT * FROM `pet-shop`.cadastro_pet INNER JOIN `pet-shop`.cadastro_tutor ON `pet-shop`.cadastro_pet.cod_tutor = `pet-shop`.cadastro_tutor.id_tutor WHERE id_pet = ?';
+  const sql = 'SELECT * FROM `pet-shop`.cadastro_pet LEFT JOIN `pet-shop`.cadastro_tutor ON `pet-shop`.cadastro_pet.cod_tutor = `pet-shop`.cadastro_tutor.id_tutor WHERE id_pet = ?';
   connection.query(sql, [id], (error, results) => {
     if (error) {
       req.flash('error_msg', 'Erro na  edição do pet.');
@@ -53,6 +53,7 @@ function editarCadastroPet(req, res) {
   });
 }
 
+
 function atualizarCadastroPet(req, res) {
   const id = req.params.id;
   const nome_pet = req.body.nome_pet;
@@ -63,27 +64,36 @@ function atualizarCadastroPet(req, res) {
   const observacao = req.body.observacao;
   const cod_tutor = req.body.cod_tutor;
 
-  const sql = 'UPDATE cadastro_pet SET nome_pet = ?, dt_nasc_pet = ?, especie = ?, raca = ?, pelagem = ?, observacao = ?, cod_tutor = ? WHERE id_pet = ?';
-  const values = [nome_pet, dt_nasc_pet, especie, raca, pelagem, observacao, cod_tutor, id];
-
-  connection.query(sql, values, (error, results) => {
-    if (error) {
-      req.flash('error_msg', 'Erro no processo de edição. Provável duplicidade de cadastro ou algum campo não preenchido.');
+  const pesquisa_tutor = 'SELECT * FROM `pet-shop`.cadastro_tutor WHERE id_tutor = ?';
+  connection.query(pesquisa_tutor, [cod_tutor], (error, resultados) => {
+    if (resultados.length == 0 ) {
+      console.log(resultados);
+      req.flash('error_msg', 'Erro na edição do pet. Não há esse número de tutor cadastrado no sistema.');
       res.redirect('/listar-pet');
     } else {
-      req.flash('success_msg', 'Editado com sucesso!')
-      res.redirect('/listar-pet');
+      const sql = 'UPDATE cadastro_pet SET nome_pet = ?, dt_nasc_pet = ?, especie = ?, raca = ?, pelagem = ?, observacao = ?, cod_tutor = ? WHERE id_pet = ?';
+      const values = [nome_pet, dt_nasc_pet, especie, raca, pelagem, observacao, cod_tutor, id];
+
+      connection.query(sql, values, (error, results) => {
+        if (error) {
+          req.flash('error_msg', 'Erro no processo de edição. Provável duplicidade de cadastro ou algum campo não preenchido.');
+          res.redirect('/listar-pet');
+        } else {
+          req.flash('success_msg', 'Editado com sucesso!')
+          res.redirect('/listar-pet');
+        }
+      });
     }
   });
 }
 
 function excluirCadastroPet(req, res) {
-  const idServicoVeterinario = req.params.id;
+  const idPet = req.params.id;
 
-  const query = `DELETE FROM servico_veterinario WHERE id_serv_veterinario = ${idServicoVeterinario}`;
-  connection.query(query, (error, results, fields) => {
+  const query = "DELETE FROM `pet-shop`.cadastro_pet WHERE id_pet = ?";
+  connection.query(query, [idPet], (error, results, fields) => {
     if (error) {
-      console.error(error);
+      console.log(error)
       req.flash('error_msg', 'Erro no processo de exclusão.');
       res.redirect('/listar-pet');
     } else {

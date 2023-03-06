@@ -13,9 +13,14 @@ Criar uma página web, tema livre, com os requisitos abaixo:
 - Banco de Dados;
 - Modelagem de Dados.
 
-O tema escolhido foi uma área adminstrativa básica para um pet shop, onde o usuário poderá cadastrar, listar, atualizar, deletar e filtrar produtos, serviços, tutores/clientes e pets. Além de divulgar a marca por meio da internet.
+O tema escolhido foi uma área adminstrativa básica para um pet shop, onde o usuário poderá cadastrar, listar, atualizar, excluir e filtrar produtos, serviços, tutores (clientes) e pets. 
+Além de divulgar a marca por meio da internet.
 
-Futuramente, haverá a implantação de um carrinho para compras on-line, uma área para conectar adotantes e doadores por meio de anúncios, além de links para registro de experiência dos clientes.
+Futuramente haverá a implantação de:
+
+- Carrinho de compras para vendas on-line, 
+- Área para ligar adotantes e doadores por meio de anúncios e feiras, 
+- Área para registro das experiências dos clientes.
 
 ## Linguagens Utilizadas
 
@@ -24,6 +29,14 @@ Futuramente, haverá a implantação de um carrinho para compras on-line, uma á
 - Bootstrap 5.1;
 - JavaScript;
 - NodeJS;
+- EJS (Embedded JavaScript).
+
+Futuramente no front-end será refeito utilizando ReactJS.
+
+## Arquitetura
+
+A arquitetura escolhida foi MVC (Model-View-Controller).
+Todavia, a parte do models e routes precisarão ser desmembradas do app em uma próxima versão.
 
 ## Bibliotecas 
 
@@ -41,8 +54,17 @@ Futuramente, haverá a implantação de um carrinho para compras on-line, uma á
 
 - npm install --save connect-flash: O connect-flash é um middleware Node.js que permite enviar mensagens flash (mensagens de feedback) para o usuário após uma ação. Ele é usado em conjunto com o express-session para armazenar as mensagens na sessão do usuário. Este comando instala o connect-flash no projeto.
 
+- npm install cookie-parser: é um middleware do Express.js que analisa e configura cookies em solicitações HTTP. Basicamente, ele faz a análise dos cookies enviados pelo cliente e os torna acessíveis para a aplicação, tornando mais fácil a manipulação de informações entre diferentes solicitações do mesmo usuário.
+
+## API de Endereço
+
+O projeto possui o consumo da API do ViaCep para facilitar o preenchimento do endereço pelo atendente.
 
 ## Comando para Rodar o Projeto
 
 - nodemon server.js
+
+
+## Porta do Projeto
+
 - http://localhost:3000

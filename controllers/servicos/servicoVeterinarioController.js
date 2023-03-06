@@ -67,10 +67,10 @@ function excluirCadastroServ(req, res) {
   connection.query(query, (error, results, fields) => {
     if (error) {
       req.flash('error_msg', 'Erro no processo de exclusão.');
-      res.redirect('/veterinario-serv');
+      res.redirect('/veterinario-serv/:'+idServicoVeterinario);
     } else {
       req.flash('success_msg', 'Excluído com sucesso!');
-      res.redirect('/veterinario-serv');
+      res.redirect('/veterinario-serv/:'+idServicoVeterinario);
     }
   });
 }
